@@ -1,4 +1,0 @@
-while True:
-    msg = input("আপনিঃ").strip().lower()
-    if msg == "hi":
-        print("বট:সেবা বেছে নিন:1")
