@@ -1,16 +1,20 @@
-# flutter_application_2
+# Hi, I'm Mizanur 👋
 
-A new Flutter project.
+I build practical apps and automations: Flutter mobile apps, Python automation, and AI chatbots (GPT / WhatsApp).
 
-## Getting Started
+## Projects
 
-This project is a starting point for a Flutter application.
+| Project | What it does | Tech |
+|---|---|---|
+| [কৃষি সেবা (Krishi Seba)](https://github.com/mdmizanurtdt-web/krishi-seba-app) | AI crop-disease diagnosis in Bengali, government procurement prices and farmer's helper | Flutter, Gemini API, Cloudflare Workers |
 
-A few resources to get you started if this is your first Flutter project:
+*More projects are added here as I build them.*
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Skills
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Flutter · Dart · Python · Chatbots · API integration · Automation
+
+## Contact
+
+- GitHub: [mdmizanurtdt-web](https://github.com/mdmizanurtdt-web)
+- Email: mdmizanurtdt@gmail.com
