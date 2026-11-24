@@ -53,11 +53,11 @@ Flutter (Dart), Material 3, `http`, `image_picker`, Google Gemini API, Cloudflar
 
 The AI's diagnosis is a helpful guide, not a replacement for an expert. For serious crop problems, please contact your local Upazila Agriculture Office.
 
-<!--
-Add screenshots after uploading images to a `screenshots` folder, then remove this comment markers:
-![Diagnosis](screenshots/diagnosis.png)
-![Prices](screenshots/prices.png)
--->
+## Screenshots
+
+| AI রোগ নির্ণয় | ফসলের দাম ও ক্যালকুলেটর | সহায়তা |
+|:---:|:---:|:---:|
+| <img src="screenshots/diagnosis.png" width="240"> | <img src="screenshots/prices.png" width="240"> | <img src="screenshots/help.png" width="240"> |
 
 ## Author
 
