@@ -17,6 +17,11 @@ import 'package:image_picker/image_picker.dart';
 // flutter run -d edge --dart-define-from-file=env.json
 const String kApiKey = String.fromEnvironment('GEMINI_API_KEY');
 
+// সুরক্ষিত মাঝখানের সার্ভারের (Cloudflare Worker) ঠিকানা। এটা দিলে অ্যাপে
+// Gemini key লাগে না, key থাকে সার্ভারে। env.json-এ দিন:
+// {"PROXY_URL": "https://krishi-proxy.আপনার-নাম.workers.dev"}
+const String kProxyUrl = String.fromEnvironment('PROXY_URL');
+
 // সরকারি ক্রয়মূল্যের অনলাইন ফাইলের ঠিকানা (prices.json)। env.json-এ দিন:
 // {"GEMINI_API_KEY": "...", "PRICES_URL": "https://raw.githubusercontent.com/আপনার-নাম/রিপো/main/prices.json"}
 // খালি থাকলে বা নেট না থাকলে অ্যাপে রাখা তথ্য দেখায়।
@@ -499,16 +504,18 @@ class _DiagnosePageState extends State<DiagnosePage> {
       }
 
       try {
-        final uri = Uri.parse(
-          'https://generativelanguage.googleapis.com/v1beta/models/$model:generateContent',
-        );
+        final useProxy = kProxyUrl.isNotEmpty;
+        final base = useProxy
+            ? kProxyUrl.replaceAll(RegExp(r'/+$'), '')
+            : 'https://generativelanguage.googleapis.com';
+        final uri = Uri.parse('$base/v1beta/models/$model:generateContent');
 
         final response = await http
             .post(
               uri,
               headers: {
                 'Content-Type': 'application/json',
-                'x-goog-api-key': kApiKey,
+                if (!useProxy) 'x-goog-api-key': kApiKey,
               },
               body: body,
             )
@@ -550,7 +557,7 @@ class _DiagnosePageState extends State<DiagnosePage> {
   Future<void> _diagnose() async {
     if (_imageBytes == null) return;
 
-    if (kApiKey.isEmpty) {
+    if (kApiKey.isEmpty && kProxyUrl.isEmpty) {
       setState(() => _error =
           'API কী দেওয়া হয়নি। অ্যাপ চালান:\nflutter run -d edge --dart-define-from-file=env.json');
       return;
